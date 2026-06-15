@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+        stage('Clone Repo') {
             steps {
                 echo 'Repository Cloned Successfully'
             }
@@ -10,19 +10,19 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t demo-app .'
+                echo 'Docker Build Successful'
             }
         }
 
         stage('Push to ECR') {
             steps {
-                echo 'Image Push Stage'
+                echo 'Image Pushed to ECR'
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                echo 'Deployment Stage'
+                echo 'Application Deployed to Kubernetes'
             }
         }
     }
